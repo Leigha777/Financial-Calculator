@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Financial Calculator</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+        
+    </head>
+    <body>
+        
+        <h1>Financial Calculator</h1>
+        <h2><i>Save Money The Right Way</i></h2>
+        
+        <!--
+            MADE WITH <3 AND JAVASCRIPT
+        -->
+        
+        <p>
+            <a href = "aboutUs.html"> About Us! </a>
+        </p>
+        <p>
+            
+        </p>
+        
+        <!--
+            WHAT IS BRACKETS?
+        -->
+        <p>
+            <em>To Use This Calculator:</em>
+            
+        </p>
+        
+        <p id = "instructions">
+            Enter Your Monthly Salary
+            <br>
+            Enter Your Goal Amount
+            <br>
+            Enter Your Goal Time Period in Months
+            <br>
+            Enter Your Monthly Expenses
+            
+        </p>
+        <!-- return result form --> 
+            <form name = "financeCalc" id = "res">
+                
+                How Much Should You Put Away Each Month:
+                    <input type="text" name = "result">
+                <br>
+                Spending Money Remaining:
+                <br>
+                    <input type="text" name = "spendMoney">
+                
+                <br>
+                <br>
+                <br>
+                <b>Enter Values Below:</b>
+                <br>
+                Monthly Salary:
+                    <input type="integer" name="salary"><br>
+                Goal Amount:
+                    <input type="integer" name="goalAmount"><br>
+                Goal Time:
+                    <input type="integer" name="goalTime"><br>
+                Expenses per Month:
+                 <input type="integer" name="expense"><br>
+            
+            
+            <input type = "button" value = "Calculate Your Finances!" onClick = "calcVal()">
+            <input type = "button" value = "Reset Values" onClick = "resetForm()">
+            <br>
+        </form>
+        
+        <p></p>
+        
+        <!-- user enter --> 
+        
+        
+        
+            <script type = "text/javascript">
+                function calcVal()
+                {
+                    var salNum = Number(document.financeCalc.salary.value);
+                    var goalNum = Number(document.financeCalc.goalAmount.value);
+                    var goalTimeNum = Number(document.financeCalc.goalTime.value);
+                    var expenses = Number(document.financeCalc.expense.value);
+                    
+                    if ((salNum - expenses) > (goalNum/goalTimeNum))
+                        {
+                            var cashMoneyMoney = (salNum - expenses) - (goalNum/goalTimeNum);
+                            document.financeCalc.result.value = (goalNum/goalTimeNum);
+                            document.financeCalc.spendMoney.value = ("You will have " + cashMoneyMoney + " remaining at the end of the month");
+                                                                              
+                        }
+                                                                         
+                    else if ((salNum - expenses) == (goalNum/goalTimeNum))
+                        {
+                            document.financeCalc.result.value=(goalNum/goalTimeNum);
+                            document.financeCalc.spendMoney.value = ("You will have no money remaining");
+                        }
+                    else if ((salNum - expenses) < (goalNum/goalTimeNum))
+                        {
+                            document.financeCalc.result.value=("You cannot afford this");
+                            document.financeCalc.spendMoney.value = ("Try to manage spending");
+                        }
+                    else
+                        {
+                            document.financeCalc.result.value=("Please Enter Values");
+                            document.financeCalc.spendMoney.value = ("Please Enter Values");
+                        }
+ 
+                }
+                
+                function resetForm()
+                {
+                    document.financeCalc.salary.value = null;
+                    document.financeCalc.goalAmount.value = null;
+                    document.financeCalc.goalTime.value = null;
+                    document.financeCalc.expense.value = null;
+                    document.financeCalc.result.value = " ";
+                    document.financeCalc.spendMoney.value = " ";
+                }
+
+            </script>
+    </body>
+</html>
